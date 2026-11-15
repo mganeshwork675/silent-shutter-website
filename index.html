@@ -2,47 +2,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Silent Shutter | Creative Studio</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    body {
-      min-height: 100vh;
-      background: #101114;
-      color: white;
-      display: grid;
-      place-items: center;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
+    <title>Silent Shutter | Onboarding Soon</title>
 
-    h1 {
-      font-size: clamp(40px, 8vw, 80px);
-      letter-spacing: 5px;
-    }
+    <meta name="description" content="Silent Shutter — A premium creative agency. Something creative is coming soon.">
 
-    h1 span {
-      color: #398cff;
-    }
+    <!-- Poppins Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    p {
-      margin-top: 25px;
-      color: #aaa;
-      letter-spacing: 3px;
-      font-size: 12px;
-    }
-  </style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+            font-family: 'Poppins', sans-serif;
+
+            /* Black to white gradient */
+            background:
+                radial-gradient(
+                    ellipse at 90% 90%,
+                    rgba(255,255,255,0.16),
+                    transparent 42%
+                ),
+                linear-gradient(
+                    135deg,
+                    #030303 0%,
+                    #090909 48%,
+                    #242424 78%,
+                    #777777 120%
+                );
+
+            color: #ffffff;
+        }
+
+        /* Main grid */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+
+            background-image:
+                linear-gradient(rgba(255,255,255,0.09) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.09) 1px, transparent 1px);
+
+            background-size: 100px 100px;
+            opacity: 0.55;
+        }
+
+        /* Dotted grid overlay */
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+
+            background-image: radial-gradient(
+                rgba(255,255,255,0.28) 1px,
+                transparent 1px
+            );
+
+            background-size: 10px 10px;
+            opacity: 0.20;
+        }
+
+        /* Main content */
+        .main-container {
+            position: relative;
+            z-index: 2;
+
+            width: min(90%, 950px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+            animation: fadeIn 1.5s ease forwards;
+        }
+
+        /* Actual logo */
+        .logo {
+            display: block;
+            width: min(100%, 720px);
+            height: auto;
+            object-fit: contain;
+
+            filter: drop-shadow(0 15px 35px rgba(0,0,0,0.4));
+        }
+
+        /* Onboarding text */
+        .onboarding-text {
+            margin-top: 30px;
+
+            font-size: clamp(20px, 3.5vw, 34px);
+            font-weight: 700;
+            letter-spacing: 7px;
+            text-transform: uppercase;
+
+            color: #ffffff;
+
+            text-shadow: 0 3px 20px rgba(255,255,255,0.15);
+        }
+
+        /* Small accent line */
+        .accent-line {
+            width: 65px;
+            height: 3px;
+            margin-top: 22px;
+
+            background: #ffffff;
+            border-radius: 5px;
+
+            box-shadow: 0 0 15px rgba(255,255,255,0.5);
+        }
+
+        /* Footer */
+        .footer {
+            position: fixed;
+            bottom: 25px;
+            left: 0;
+            width: 100%;
+
+            text-align: center;
+            z-index: 2;
+
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: rgba(255,255,255,0.55);
+            font-weight: 500;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 600px) {
+
+            body::before {
+                background-size: 55px 55px;
+            }
+
+            .main-container {
+                width: 92%;
+            }
+
+            .logo {
+                width: 100%;
+            }
+
+            .onboarding-text {
+                margin-top: 22px;
+                font-size: 18px;
+                letter-spacing: 4px;
+            }
+
+            .accent-line {
+                margin-top: 18px;
+                width: 45px;
+            }
+
+            .footer {
+                bottom: 18px;
+                font-size: 8px;
+                letter-spacing: 2px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <main>
-    <h1>SILENT <span>SHUTTER</span></h1>
-    <p>WE CREATE. WE COMMUNICATE. WE CAPTURE.</p>
-  </main>
+
+    <main class="main-container">
+
+        <!-- Original Silent Shutter Logo -->
+        <img
+            src="assets/logo-main.png"
+            alt="Silent Shutter Official Logo"
+            class="logo"
+        >
+
+        <!-- Launch Message -->
+        <h1 class="onboarding-text">
+            Onboarding Soon
+        </h1>
+
+        <div class="accent-line"></div>
+
+    </main>
+
+    <footer class="footer">
+        SILENT SHUTTER © 2026
+    </footer>
+
 </body>
 </html>
