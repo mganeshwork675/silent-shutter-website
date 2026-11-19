@@ -28,7 +28,7 @@
 
         body {
             min-height: 100vh;
-            overflow: hidden;
+            overflow-x: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -91,6 +91,8 @@
             z-index: 2;
 
             width: min(90%, 950px);
+            padding: 40px 0 100px;
+
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -124,7 +126,7 @@
             text-shadow: 0 3px 20px rgba(255,255,255,0.15);
         }
 
-        /* Small accent line */
+        /* Accent line */
         .accent-line {
             width: 65px;
             height: 3px;
@@ -136,10 +138,52 @@
             box-shadow: 0 0 15px rgba(255,255,255,0.5);
         }
 
+        /* Contact section */
+        .contact-section {
+            margin-top: 32px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 1px;
+
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: #ffffff;
+            transform: translateY(-2px);
+            text-shadow: 0 0 12px rgba(255,255,255,0.35);
+        }
+
+        .contact-icon {
+            font-size: 17px;
+            opacity: 0.85;
+        }
+
+        /* Instagram accent */
+        .instagram-link:hover {
+            color: #c084fc;
+            text-shadow: 0 0 15px rgba(192,132,252,0.4);
+        }
+
         /* Footer */
         .footer {
             position: fixed;
-            bottom: 25px;
+            bottom: 22px;
             left: 0;
             width: 100%;
 
@@ -173,6 +217,7 @@
 
             .main-container {
                 width: 92%;
+                padding: 30px 0 100px;
             }
 
             .logo {
@@ -190,10 +235,32 @@
                 width: 45px;
             }
 
+            .contact-section {
+                margin-top: 25px;
+                gap: 14px;
+            }
+
+            .contact-link {
+                font-size: 11px;
+                letter-spacing: 0.5px;
+            }
+
             .footer {
-                bottom: 18px;
+                bottom: 15px;
                 font-size: 8px;
                 letter-spacing: 2px;
+            }
+        }
+
+        /* Small mobile screens */
+        @media (max-width: 380px) {
+            .onboarding-text {
+                font-size: 16px;
+                letter-spacing: 3px;
+            }
+
+            .contact-link {
+                font-size: 10px;
             }
         }
     </style>
@@ -203,7 +270,7 @@
 
     <main class="main-container">
 
-        <!-- Original Silent Shutter Logo -->
+        <!-- Silent Shutter Logo -->
         <img
             src="Logo Main.png"
             alt="Silent Shutter Official Logo"
@@ -217,8 +284,34 @@
 
         <div class="accent-line"></div>
 
+        <!-- Contact Section -->
+        <section class="contact-section">
+
+            <!-- Business Email -->
+            <a
+                href="mailto:connect@silentshutter.online"
+                class="contact-link"
+            >
+                <span class="contact-icon">✉</span>
+                connect@silentshutter.online
+            </a>
+
+            <!-- Instagram -->
+            <a
+                href="https://www.instagram.com/silent_shutter_02?utm_source=ig_web_button_share_sheet&fqnt=ZDNlZDc0MzIxNw=="
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-link instagram-link"
+            >
+                <span class="contact-icon">◎</span>
+                Follow Silent Shutter on Instagram
+            </a>
+
+        </section>
+
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         SILENT SHUTTER © 2026
     </footer>
